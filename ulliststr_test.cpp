@@ -14,10 +14,31 @@ int main(int argc, char* argv[])
   dat.push_front("3");
   dat.pop_back();
   dat.pop_front();
+  dat.push_back("23");
+  dat.push_back("2");
+  dat.pop_back();
+  dat.push_back("12");
+  dat.pop_front();
+  dat.pop_front();
+  dat.push_back("4");
+  dat.push_front("8");
+  dat.pop_back();
+  dat.pop_front();
   dat.push_back("3");
+  dat.push_back("6");
+  dat.push_front("7");
   dat.push_back("3");
-  cout << dat.get(0) << " " << dat.get(1) << dat.get(2) << endl;
-  // prints: 8 7 9
-  cout << dat.size() << endl;  // prints 3 since there are 3 strings stored
+
+  size_t counter = 0;
+  cout << "list: ";
+  while(counter<dat.size()){
+    cout << dat.get(counter) << " ";
+    counter++;
+  }
+
+  cout << endl << "first item in the entire list: " << dat.front() << endl;
+  cout << "last item in the entire list: " << dat.back() << endl;
+  cout << "size: " << dat.size() << endl;
+
   return 0;
 }

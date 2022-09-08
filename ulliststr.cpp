@@ -141,10 +141,10 @@ void ULListStr::pop_front(){ //removing at the beginning
 
 }
 std::string const & ULListStr::back() const{ //access last
-
+  return tail_->val[(tail_->last)-1];
 }
 std::string const & ULListStr::front() const{ //access first 
-
+  return head_->val[head_->first];
 }
 std::string* ULListStr::getValAtLoc(size_t loc) const{ //get val
 
@@ -166,8 +166,8 @@ std::string* ULListStr::getValAtLoc(size_t loc) const{ //get val
       placeInItem = currentItem->first;
     }
   }
-
   return &currentItem->val[placeInItem];
+
 }
 
 
