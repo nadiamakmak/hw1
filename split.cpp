@@ -14,28 +14,46 @@ the function below should be the only one in this file.
 #include <cstddef>
 
 /* Add a prototype for a helper function here if you need */
+void helper(Node*& in, Node*& odds, Node*& evens);
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
+  helper(in, odds, evens);
+  in = NULL;
+}
+
+void helper(Node*& in, Node*& odds, Node*& evens){
   if(in == NULL){
+    odds->next = NULL;
+    evens->next = NULL;
     return;
   }
 
   else if((in->value)%2==0){
-    evens = in;
-    split(evens->next, odds, evens->next);
-    in = NULL; 
-    //in->next = NULL; 
+    if(evens==NULL){ //if the first number
+      evens=in;
+      helper(in->next, odds, evens);
+    }
+    else{
+      evens->next = in;
+      helper(in->next, odds, evens->next);
+    }
   }
 
   else{
-    odds = in;
-    split(odds->next, odds->next, evens);
-    in = NULL; 
-    //in->next = NULL;
-  }
+    if(odds==NULL){ //if first
+      odds=in;
+      helper(in->next, odds, evens);
+    }
+    else{
+      odds->next = in;
+      helper(in->next, odds->next, evens);     
+    }
 
+  }
 }
+
+
 
 /* If you needed a helper function, write it here */
 
