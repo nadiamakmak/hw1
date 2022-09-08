@@ -26,9 +26,10 @@ size_t ULListStr::size() const
   return size_;
 }
 
-
 // WRITE YOUR CODE HERE
-void ULListStr::push_back(const std::string& val){
+void ULListStr::push_back(const std::string& val){ //adding at the end
+
+  //THREE CASES: 1) entire list is empty; 2) tail has no space; 3) tail has space
 
   if(empty()==true){
     Item *firstItem = new Item();
@@ -55,8 +56,9 @@ void ULListStr::push_back(const std::string& val){
   }  
 
 }
+void ULListStr::push_front(const std::string& val){ //adding at the beginning
 
-void ULListStr::push_front(const std::string& val){ 
+  //THREE CASES: 1) entire list is empty; 2) head is full; 3) head has space AT THE BEGINNING
 
   if(empty()==true){
     Item *firstItem = new Item();
@@ -85,7 +87,9 @@ void ULListStr::push_front(const std::string& val){
   }
 
 }
-void ULListStr::pop_back(){ 
+void ULListStr::pop_back(){ //removing at the end
+
+  //FOUR CASES: 1) list is empty; 2) one number in tail AND only one item total; 2) one number in tail; 4) more than one number in tail
 
   if(empty()==true){
     return;
@@ -111,7 +115,9 @@ void ULListStr::pop_back(){
 
 }
 
-void ULListStr::pop_front(){ 
+void ULListStr::pop_front(){ //removing at the beginning
+
+  //FOUR CASES: 1) list is empty; 2) one number in head AND only one item total; 2) one number in head; 4) more than one number in head
 
   if(empty()==true){
     return;
@@ -136,18 +142,17 @@ void ULListStr::pop_front(){
   }
 
 }
-
-std::string const & ULListStr::back() const{ 
+std::string const & ULListStr::back() const{ //access last
   return tail_->val[(tail_->last)-1];
 }
 
-std::string const & ULListStr::front() const{ 
+std::string const & ULListStr::front() const{ //access first 
   return head_->val[head_->first];
 }
 
-std::string* ULListStr::getValAtLoc(size_t loc) const{
+std::string* ULListStr::getValAtLoc(size_t loc) const{ //get val
 
-  if(int(loc) <= -1 || loc >= size_){
+  if(int(loc) <= -1 || loc >= size_){ //checking to see if location exists
     return nullptr;
   }
 
@@ -155,12 +160,12 @@ std::string* ULListStr::getValAtLoc(size_t loc) const{
   size_t placeInItem, placeInList;
 
   placeInList = 0;
-  placeInItem = head_->first;
+  placeInItem = head_->first; //start at the beginning
 
   while(placeInList != loc){
     placeInItem++;
     placeInList++;
-    if(placeInItem==currentItem->last){
+    if(placeInItem==currentItem->last){ //need to move on to the next item
       currentItem = currentItem->next;
       placeInItem = currentItem->first;
     }
@@ -168,6 +173,11 @@ std::string* ULListStr::getValAtLoc(size_t loc) const{
   return &currentItem->val[placeInItem];
 
 }
+
+
+
+
+
 
 void ULListStr::set(size_t loc, const std::string& val)
 {

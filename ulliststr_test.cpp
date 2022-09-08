@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
 
   size_t counter = 0;
   cout << "list: ";
-  while(counter<dat.size()){
+  while(counter<dat.size()){ //print out the entire code
     cout << dat.get(counter) << " ";
     counter++;
   }
