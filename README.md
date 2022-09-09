@@ -1,5 +1,7 @@
 FOR PART 1:
 
+split_test.cpp has a place to create a dynamically allocated linked list. This list is deleted at the end of the main function, so no memory leaks should occur. Valgrind checks out.
+
 FOR PART 2: 
 
 When testing, please make sure all code goes through the try block to be able to handle an error when trying to reference an invalid location.
@@ -10,4 +12,4 @@ ulliststr_test.cpp is made so that you can perform whatevers operations you want
   If at any point an invalid location is to be accessed, then the program will throw an error and terminate. 
   IF MY TEST CODE REMAINS UNCHANGED, this will only happen if you pass in an empty Item struct because my main is trying to print the first value, and there is no value, it will throw an exception.
     My main automatically prints out all values in the list (as for testing purposes) and does so in a while loop, so there will be no chance for it to get an invalid location unless the code is changed to try accessing one.
-    
+No memory leaks should occur.
