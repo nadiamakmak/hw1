@@ -1,10 +1,18 @@
 FOR PART 1:
 
+1) All that needs to be done is change the numbers in the test1 linked list (in the designated area) to the numbers that are being tested.
+2) g++ -g -Wall split_test.cpp split.cpp -o split
+3) ./split
+
 split_test.cpp has a place to create a dynamically allocated linked list. This list is deleted at the end of the main function, so no memory leaks should occur. Valgrind checks out.
 
 I've also made it so that my test code prints out the list of numbers going in (including 'none' to signify NULL) and then the even list and odd list. Additionally, it will say "deleting..." and then show what's left of the lists after the deletion process occurs.
 
 FOR PART 2: 
+
+1) Change whichever operations you want in the designated area.
+2) g++ -g -Wall ulliststr_test.cpp ulliststr.cpp -o ulliststr
+3) ./ulliststr
 
 When testing, please make sure all code goes through the try block to be able to handle an error when trying to reference an invalid location.
   If an invalid location attempts to be accessed, an error will appear saying that the location does not exist, and the program will terminate.
