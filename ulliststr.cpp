@@ -143,17 +143,19 @@ void ULListStr::pop_front(){ //removing at the beginning
 
 }
 std::string const & ULListStr::back() const{ //access last
+  if(size_==0){ throw std::invalid_argument("\n ERROR: Location does not exist. Terminating. \n"); }
   return tail_->val[(tail_->last)-1];
 }
 
 std::string const & ULListStr::front() const{ //access first 
+  if(size_==0){ throw std::invalid_argument("\n ERROR: Location does not exist. Terminating. \n"); }
   return head_->val[head_->first];
 }
 
 std::string* ULListStr::getValAtLoc(size_t loc) const{ //get val
 
-  if(int(loc) <= -1 || loc >= size_){ //checking to see if location exists
-    return nullptr;
+  if(loc < 0 || loc >= size_){ //checking to see if location exists
+    throw std::invalid_argument("\n ERROR: Location does not exist. Terminating. \n");
   }
 
   Item* currentItem = head_;
